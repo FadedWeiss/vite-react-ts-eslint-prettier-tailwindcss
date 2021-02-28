@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import logo from '~/logo.svg'
+// @ts-ignore
+import { content } from '@content/src'
 
 function App(): JSX.Element {
   const [count, setCount] = useState(0)
@@ -11,6 +13,7 @@ function App(): JSX.Element {
         <p className="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-gray-100">
           Hello Vite + React!
         </p>
+        <pre>{content}</pre>
         <p className="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">
           <button onClick={() => setCount((count) => count + 1)}>
             count is: {count}

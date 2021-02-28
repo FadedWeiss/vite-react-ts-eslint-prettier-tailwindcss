@@ -4,14 +4,16 @@ import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
 import { UserConfig } from 'vite'
 import { join } from 'path'
+import SourcePlugin from './src/plugins/source'
 
-const config: UserConfig = {
+export default <UserConfig>{
   css: {
     postcss: {
       plugins: [tailwindcss(), autoprefixer()],
     },
   },
   plugins: [
+    SourcePlugin(),
     { ...eslint({ include: 'src/**/*.+(js|jsx|ts|tsx)' }), enforce: 'pre' },
     reactRefresh(),
   ],
@@ -22,5 +24,3 @@ const config: UserConfig = {
     },
   },
 }
-
-export default config
